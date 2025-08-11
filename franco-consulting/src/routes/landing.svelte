@@ -1,0 +1,109 @@
+<script>
+</script>
+
+<div class="section_0">
+	<img src="/logo_fc_new.png" alt="logo" />
+	<h1>Franko Consulting</h1>
+	<p>Pomoc osobom zatrzymanym</p>
+	<div class="cube">
+		<span class="side top"><span class="top_text">Konsultacja</span></span>
+		<span class="side front">Zadzwoń</span>
+	</div>
+</div>
+
+<style>
+	.section_0 {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		height: 100vh;
+		/* background-color: rgba(0, 0, 0, 0.250); */
+	}
+	.section_0 img {
+		width: 80%;
+		max-width: 900px;
+		margin-bottom: 0;
+	}
+	.section_0 h1 {
+		font-family: 'Mozilla Headline', sans-serif;
+		font-size: 4em;
+		margin-top: 0;
+		margin-bottom: 0;
+		opacity: 0;
+		animation: flip 1.5s forwards 0s;
+	}
+	.section_0 p {
+		font-family: 'Mozilla Headline', sans-serif;
+		font-weight: 400;
+		font-size: 2.5em;
+		opacity: 0;
+		animation: flip 1.5s forwards .5s;
+	}
+	/* CTA BUTTON */
+	.cube {
+		color: #ccc;
+		cursor: pointer;
+		font-family: 'Mozilla Headline', sans-serif;
+		transition: all 0.85s cubic-bezier(0.17, 0.67, 0.14, 0.93);
+		transform-style: preserve-3d;
+		transform-origin: 100% 50%;
+		width: 10em;
+		height: 4em;
+	}
+
+	.cube:hover {
+		transform: rotateX(-90deg);
+	}
+
+	.side {
+		box-sizing: border-box;
+		position: absolute;
+		display: inline-block;
+		height: 4em;
+		width: 10em;
+		text-align: center;
+		text-transform: uppercase;
+		padding-top: 1.5em;
+		font-weight: 800;
+	}
+
+	.top {
+		background: rgb(215, 215, 215);
+		color: #000000;
+		font-size: 1em;
+		font-weight: 800;
+		transform: rotateX(90deg) translate3d(0, 0, 2em);
+		box-shadow: inset 0 0 0 3px #000000;
+	}
+
+	.front {
+		background: #0000008a;
+		color: #fff;
+		font-size: 1em;
+		font-weight: 800;
+		box-shadow: inset 0 0 0 3px #000000;
+		transform: translate3d(0, 0, 2em);
+	}
+	@media (max-width: 580px) {
+		.section_0 {
+			height: 100vh;
+		}
+		.section_0 h1 {
+			font-size: 2em;
+		}
+		.section_0 p {
+			font-size: 1.3em;
+		}
+	}
+	@keyframes flip {
+		from {
+			transform: translateY(-1vh);
+			opacity: 0;
+		}
+		to {
+			transform: translateY(0vh);
+			opacity: 1;
+		}
+	}
+</style>
