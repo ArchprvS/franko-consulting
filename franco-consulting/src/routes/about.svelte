@@ -19,23 +19,23 @@
   .text_container {
     background-color: rgb(255, 255, 255);
     padding: 10vw;
-    min-height: 100vh;
+    min-height: 92vh;
   }
 	h1 {
 		font-family: 'Mozilla Headline';
-		text-align: center;
+		text-align: left;
+		font-size: 5vh;
 	}
 	p {
 		font-family: 'Mozilla Headline';
 		text-align: justify;
-    font-size: 1.5em;
+    font-size: 2.5vh;
 	}
   @media (max-width: 580px) {
     h1 {
 		text-align: left;
 	}
     p {
-    font-size: 0.9em;
     text-align: left;
 	}
   }

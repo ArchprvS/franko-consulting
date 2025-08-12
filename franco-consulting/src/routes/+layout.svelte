@@ -1,13 +1,43 @@
 <script>
 	import favicon from '$lib/assets/favicon.svg';
+	import { onMount } from 'svelte';
 
 	let { children } = $props();
 
 	let menu_open = $state(false);
+	let scroll_offtop = $state(false);
+	let menubar_hide = $state(false);
+
+	let scroll_direction = $state(false);
+	let previous_max = $state(0);
+	let current_max = $state(0);
+	$inspect(previous_max, current_max)
 
 	const toggle_menu = () => {
 		menu_open = !menu_open
 	}
+
+	onMount(() => {
+        window.addEventListener('scroll', () => {
+            scroll_offtop = window.scrollY > 50;
+						previous_max = current_max;
+						current_max = window.scrollY;
+
+						if (previous_max < current_max) {
+							scroll_direction = true;
+						}
+						else {
+							scroll_direction = false;
+						}
+
+						if ((window.scrollY > 200) && scroll_direction) {
+							menubar_hide = true;
+						}
+						else {
+							menubar_hide = false;
+						}
+        });
+    });
 </script>
 
 <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -18,7 +48,7 @@
 />
 
 <div class="header">
-	<div class="menubar">
+	<div class="menubar" class:menubar_hide={menubar_hide}>
 		<div class="logo">
 		<!-- <img src="/logo_fc_new.png" alt="logo" /> -->
 		<p>Franko Consulting</p>
@@ -29,7 +59,7 @@
 		<div class="line_2" class:rotate_2={menu_open}></div>
 	</button>
 	</div>
-	<div class="menumask" class:slidein={menu_open}></div>
+	<div class="menumask" class:slidein={menu_open || scroll_offtop} class:menubar_hide={menubar_hide}></div>
 	<div class="menubox" class:slidein={menu_open}>
 		<a href="">Kim jesteśmy?</a>
 		<a href="">Co oferujemy?</a>
@@ -54,6 +84,7 @@
 		justify-content: space-between;
 		position: fixed;
 		z-index: 20;
+		transition: transform 0.5s ease-in-out;
 	}
 	.logo {
 		display: flex;
@@ -113,7 +144,7 @@
 		/* display: none; */
 		/* backdrop-filter: blur(20px); */
 		transform: translateX(-100%);
-		transition: backdrop-filter 0.7s ease, transform 0.7s ease-in-out;
+		transition: backdrop-filter 0.5s ease, transform 0.5s ease-in-out;
 	}
 	.menubox {
 		background-color: rgba(200, 200, 200, 0.4);
@@ -129,7 +160,7 @@
 		flex-direction: column;
 		text-align: right;
 		transform: translateX(100%);
-		transition: backdrop-filter 0.7s ease, transform 0.7s ease-in-out;
+		transition: backdrop-filter 0.5s ease, transform 0.5s ease-in-out;
 	}
 	.menubox a {
 		font-family: 'Mozilla Headline';
@@ -145,6 +176,9 @@
 	.slidein {
 		transform: translateX(0);
 		backdrop-filter: blur(15px);
+	}
+	.menubar_hide {
+		transform: translateY(-8vh);
 	}
 	@media (max-width: 580px) {
 		.logo p {
