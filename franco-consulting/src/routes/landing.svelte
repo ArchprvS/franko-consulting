@@ -1,14 +1,29 @@
+<!-- src/routes/+page.svelte -->
 <script>
+  import { onMount } from 'svelte';
+  import { machine_writing } from './utils.js';
+
+  let target_text = $state('');
+
+  onMount(() => {
+    machine_writing('Pomoc osobom zatrzymanym', 30, (char) => {
+      target_text += char;
+    });
+    return () => {
+    };
+  });
 </script>
 
 <div class="section_0">
-	<img src="/logo_fc_new.png" alt="logo" />
-	<h1>Franko Consulting</h1>
-	<p>Pomoc osobom zatrzymanym</p>
-	<div class="cube">
-		<span class="side top"><span class="top_text">Konsultacja</span></span>
-		<span class="side front">Zadzwoń</span>
-	</div>
+  <img src="/logo_fc_new.png" alt="logo" />
+  <div>
+    <h1>Franko Consulting</h1>
+    <p>{target_text}</p>
+  </div>
+  <div class="cube">
+    <span class="side top"><span class="top_text">Konsultacja</span></span>
+    <span class="side front">Zadzwoń</span>
+  </div>
 </div>
 
 <style>
@@ -30,15 +45,18 @@
 		font-size: 4em;
 		margin-top: 0;
 		margin-bottom: 0;
-		opacity: 0;
-		animation: flip 1.5s forwards 0s;
+		text-align: center;
+		/* opacity: 0;
+		animation: flip 1.5s forwards 0s; */
 	}
 	.section_0 p {
 		font-family: 'Mozilla Headline', sans-serif;
 		font-weight: 400;
-		font-size: 2.5em;
-		opacity: 0;
-		animation: flip 1.5s forwards .5s;
+		font-size: 2.4em;
+		min-height: 1.6em;
+		text-align: left;
+		/* opacity: 0;
+		animation: flip 1.5s forwards .5s; */
 	}
 	/* CTA BUTTON */
 	.cube {
@@ -93,7 +111,7 @@
 			font-size: 2em;
 		}
 		.section_0 p {
-			font-size: 1.3em;
+			font-size: 1.2em;
 		}
 	}
 	@keyframes flip {

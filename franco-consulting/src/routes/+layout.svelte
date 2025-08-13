@@ -11,7 +11,6 @@
 	let scroll_direction = $state(false);
 	let previous_max = $state(0);
 	let current_max = $state(0);
-	$inspect(previous_max, current_max)
 
 	const toggle_menu = () => {
 		menu_open = !menu_open
