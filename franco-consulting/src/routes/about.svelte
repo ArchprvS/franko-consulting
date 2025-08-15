@@ -7,7 +7,6 @@
 	let top_distance = $state(0);
 	let window_height = $state(0);
 	let trigger = false;
-	$inspect(top_distance, window_height);
 
 	onMount(() => {
 		function updatePosition() {
@@ -31,10 +30,6 @@
 		updateSize();
 		window.addEventListener('scroll', updatePosition);
 		window.addEventListener('resize', updateSize);
-
-		// machine_writing('Kim jesteśmy?', 30, (char) => {
-		//   target_text += char;
-		// });
 
 		return () => {
 			window.removeEventListener('scroll', updatePosition);
@@ -60,7 +55,7 @@
 	.text_container {
 		background-color: rgb(255, 255, 255);
 		padding: 10vw;
-		min-height: 92vh;
+		/* min-height: 92vh; */
 	}
 	h1 {
 		font-family: 'Mozilla Headline';

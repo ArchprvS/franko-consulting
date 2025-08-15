@@ -37,7 +37,7 @@
 	}
 	.section_0 img {
 		width: 80%;
-		max-width: 900px;
+		max-width: 800px;
 		margin-bottom: 0;
 	}
 	.section_0 h1 {
@@ -60,7 +60,7 @@
 	}
 	/* CTA BUTTON */
 	.cube {
-		color: #ccc;
+		color: #fff;
 		cursor: pointer;
 		font-family: 'Mozilla Headline', sans-serif;
 		transition: all 0.85s cubic-bezier(0.17, 0.67, 0.14, 0.93);
@@ -87,7 +87,7 @@
 	}
 
 	.top {
-		background: rgb(215, 215, 215);
+		background: rgb(255, 255, 255);
 		color: #000000;
 		font-size: 1em;
 		font-weight: 800;
