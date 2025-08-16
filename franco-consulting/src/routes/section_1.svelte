@@ -37,7 +37,7 @@
 							machine_writing('Skuteczność.', 30, (char) => {
 								target_text_1 += char;
 							});
-						}, 3000);
+						}, 2500);
 					}
 				}
 			}
@@ -70,6 +70,8 @@
 		flex-direction: row;
 		justify-content: space-between;
 		padding: 30vh 10vw;
+		overflow: hidden;
+		perspective: 1000px;
 	}
 	h2 {
 		font-family: 'Mozilla Headline';
@@ -80,26 +82,32 @@
 		padding: 2.2vw;
 		text-align: left;
 		width: 25%;
+		transform-style: preserve-3d;
 		/* transition: all 2s ease; */
 	}
 	h2:nth-child(2) {
+		transform-origin: center center;
+	}
+	/* h2:nth-child(2) {
 		position: absolute;
 		left: 50%;
-		top: 47.4%;
+		top: 50%;
 		min-height: 2.76vw;
 		transform: translate(-50%, -50%);
 		width: 20%;
-		z-index: 10;
-	}
+		z-index: 5;
+	} */
 	.flip_1 {
 		animation: anim_0 1.5s forwards;
+		animation-delay: .3s;
 	}
 	.middle_flip {
-		animation: anim_1 1.5s forwards;
-		animation-delay: 1.35s;
+		animation: anim_1 2s forwards;
+		animation-delay: .3s;
 	}
 	.flip_2 {
 		animation: anim_2 1.5s forwards;
+		animation-delay: .3s;
 	}
 	@keyframes anim_0 {
 		0% {
@@ -113,32 +121,37 @@
 		}
 		100% {
 			width: 28%;
-			transform: translateX(100%);
-			opacity: 0;
+			transform: translateX(-100vw);
+			/* opacity: 0; */
 		}
 	}
 	@keyframes anim_1 {
 		0% {
-			color: black;
+			transform: scale(1) rotateX(0deg);
+			padding: 2.2vw;
 		}
-		25% {
-			color: #fff;
+		6.25% {
+			transform: scale(1) rotateX(90deg);
+		}
+		12.5% {
+			transform: scale(1) rotateX(180deg);
+		}
+		18.75% {
+			transform: scale(1) rotateX(270deg);
 		}
 		50% {
-			font-size: 2.7vw;
-			width: 25%;
+			transform: scale(1);
+			padding: 2.2vw;
+			font-weight: 400;
+			transform: rotateX(360deg);
 		}
 		73.5% {
-			color: #fff;
-			font-size: 2.7vw;
 			font-weight: 600;
 		}
 		100% {
-			font-size: 6vw;
-			min-height: 6vh;
-			width: 38%;
-			color: black;
+			transform: scale(2);
 			font-weight: 600;
+			padding-left: 4vw;
 		}
 	}
 	@keyframes anim_2 {
@@ -153,8 +166,8 @@
 		}
 		100% {
 			width: 28%;
-			transform: translateX(-100%);
-			opacity: 0;
+			transform: translateX(100vw);
+			/* opacity: 0; */
 		}
 	}
 	@media (max-width: 580px) {

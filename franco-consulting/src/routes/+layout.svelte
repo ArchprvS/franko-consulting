@@ -13,30 +13,46 @@
 	let current_max = $state(0);
 
 	const toggle_menu = () => {
-		menu_open = !menu_open
-	}
+		menu_open = !menu_open;
+	};
 
 	onMount(() => {
-        window.addEventListener('scroll', () => {
-            scroll_offtop = window.scrollY > 50;
-						previous_max = current_max;
-						current_max = window.scrollY;
+		window.addEventListener('scroll', () => {
+			scroll_offtop = window.scrollY > 50;
+			previous_max = current_max;
+			current_max = window.scrollY;
 
-						if (previous_max < current_max) {
-							scroll_direction = true;
-						}
-						else {
-							scroll_direction = false;
-						}
+			if (previous_max < current_max) {
+				scroll_direction = true;
+			} else {
+				scroll_direction = false;
+			}
 
-						if ((window.scrollY > 200) && scroll_direction) {
-							menubar_hide = true;
-						}
-						else {
-							menubar_hide = false;
-						}
-        });
-    });
+			if (window.scrollY > 200 && scroll_direction) {
+				menubar_hide = true;
+			} else {
+				menubar_hide = false;
+			}
+		});
+	});
+
+	$effect(() => {
+    if (menu_open) {
+        // Oblicz szerokość scrollbara
+        const scrollbar_width = window.innerWidth - document.documentElement.clientWidth;
+
+        document.body.style.overflow = 'hidden';
+        document.body.style.paddingRight = `${scrollbar_width}px`;
+    } else {
+        document.body.style.overflow = '';
+        document.body.style.paddingRight = '';
+    }
+
+    return () => {
+        document.body.style.overflow = '';
+        document.body.style.paddingRight = '';
+    };
+});
 </script>
 
 <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -47,18 +63,18 @@
 />
 
 <div class="header">
-	<div class="menubar" class:menubar_hide={menubar_hide}>
+	<div class="menubar" class:menubar_hide>
 		<div class="logo">
-		<!-- <img src="/logo_fc_new.png" alt="logo" /> -->
-		<p>Franko Consulting</p>
+			<!-- <img src="/logo_fc_new.png" alt="logo" /> -->
+			<p>Franko Consulting</p>
+		</div>
+		<button class="menubutton" onclick={toggle_menu} aria-label="close">
+			<div class="line_0" class:rotate_0={menu_open}></div>
+			<div class="line_1" class:rotate_1={menu_open}></div>
+			<div class="line_2" class:rotate_2={menu_open}></div>
+		</button>
 	</div>
-	<button class="menubutton" onclick={toggle_menu} aria-label="close">
-		<div class="line_0" class:rotate_0={menu_open}></div>
-		<div class="line_1" class:rotate_1={menu_open}></div>
-		<div class="line_2" class:rotate_2={menu_open}></div>
-	</button>
-	</div>
-	<div class="menumask" class:slidein={menu_open || scroll_offtop} class:menubar_hide={menubar_hide}></div>
+	<div class="menumask" class:slidein={menu_open || scroll_offtop} class:menubar_hide></div>
 	<div class="menubox" class:slidein={menu_open}>
 		<a href="">Kim jesteśmy?</a>
 		<a href="">Co oferujemy?</a>
@@ -112,7 +128,9 @@
 		cursor: pointer;
 		z-index: 20;
 	}
-	.line_0, .line_1, .line_2 {
+	.line_0,
+	.line_1,
+	.line_2 {
 		width: 100%;
 		height: 2px;
 		background-color: black;
@@ -143,7 +161,9 @@
 		/* display: none; */
 		/* backdrop-filter: blur(20px); */
 		transform: translateX(-100%);
-		transition: backdrop-filter 0.5s ease, transform 0.5s ease-in-out;
+		transition:
+			backdrop-filter 0.5s ease,
+			transform 0.5s ease-in-out;
 	}
 	.menubox {
 		background-color: rgba(200, 200, 200, 0.4);
@@ -159,7 +179,9 @@
 		flex-direction: column;
 		text-align: right;
 		transform: translateX(100%);
-		transition: backdrop-filter 0.5s ease, transform 0.5s ease-in-out;
+		transition:
+			backdrop-filter 0.5s ease,
+			transform 0.5s ease-in-out;
 	}
 	.menubox a {
 		font-family: 'Mozilla Headline';
@@ -178,6 +200,10 @@
 	}
 	.menubar_hide {
 		transform: translateY(-8vh);
+	}
+	.no-scroll {
+		overflow: hidden;
+		height: 100vh;
 	}
 	@media (max-width: 580px) {
 		.logo p {
