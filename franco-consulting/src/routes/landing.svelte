@@ -15,7 +15,7 @@
 </script>
 
 <div class="section_0">
-  <img src="/logo_fc_new.png" alt="logo" />
+  <img src="./logo_fc_new.png" alt="logo" />
   <div>
     <h1>Franko Consulting</h1>
     <p>{target_text}</p>
