@@ -81,8 +81,10 @@
 		min-height: 5vh;
 	}
 	li {
+		list-style-image: url('point.png');
 		font-family: 'Mozilla Headline';
 		text-align: left;
-		font-size: 2vh;
+		font-size: 2.5vh;
+		padding-top: 10px;
 	}
 </style>

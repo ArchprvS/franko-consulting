@@ -11,6 +11,7 @@
 	let scroll_direction = $state(false);
 	let previous_max = $state(0);
 	let current_max = $state(0);
+	let scrollbar_width = $state(0);
 
 	const toggle_menu = () => {
 		menu_open = !menu_open;
@@ -39,7 +40,7 @@
 	$effect(() => {
     if (menu_open) {
         // Oblicz szerokość scrollbara
-        const scrollbar_width = window.innerWidth - document.documentElement.clientWidth;
+        scrollbar_width = window.innerWidth - document.documentElement.clientWidth;
 
         document.body.style.overflow = 'hidden';
         document.body.style.paddingRight = `${scrollbar_width}px`;
@@ -63,12 +64,13 @@
 />
 
 <div class="header">
-	<div class="menubar" class:menubar_hide>
+	<!-- <div class="menubar" class:menubar_hide style="padding-right: {scrollbar_width + 100};"> -->
+	 <div class="menubar" class:menubar_hide>
 		<div class="logo">
 			<!-- <img src="/logo_fc_new.png" alt="logo" /> -->
 			<p>Franko Consulting</p>
 		</div>
-		<button class="menubutton" onclick={toggle_menu} aria-label="close">
+		<button class="menubutton" onclick={toggle_menu} aria-label="close" style="margin-right: {menu_open ? scrollbar_width + 20 : 20}px;">
 			<div class="line_0" class:rotate_0={menu_open}></div>
 			<div class="line_1" class:rotate_1={menu_open}></div>
 			<div class="line_2" class:rotate_2={menu_open}></div>
@@ -76,10 +78,10 @@
 	</div>
 	<div class="menumask" class:slidein={menu_open || scroll_offtop} class:menubar_hide></div>
 	<div class="menubox" class:slidein={menu_open}>
-		<a href="">Kim jesteśmy?</a>
-		<a href="">Co oferujemy?</a>
-		<a href="">Z kim współpracujemy?</a>
-		<a href="">Dlaczego warto nam zaufać?</a>
+		<a href="" style="padding-right: {menu_open ? scrollbar_width + 20 : 20}px;">Kim jesteśmy?</a>
+		<a href="" style="padding-right: {menu_open ? scrollbar_width + 20 : 20}px;">Co oferujemy?</a>
+		<a href="" style="padding-right: {menu_open ? scrollbar_width + 20 : 20}px;">Z kim współpracujemy?</a>
+		<a href="" style="padding-right: {menu_open ? scrollbar_width + 20 : 20}px;">Dlaczego warto nam zaufać?</a>
 	</div>
 </div>
 
@@ -186,7 +188,7 @@
 	.menubox a {
 		font-family: 'Mozilla Headline';
 		font-size: 3.2vh;
-		padding: 4vw;
+		padding: 15px 0px 15px 0px;
 		text-decoration: none;
 		color: black;
 		transition: all 0.4s ease;

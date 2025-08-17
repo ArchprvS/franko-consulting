@@ -2,6 +2,7 @@
 	"name": "franco-consulting",
 	"private": true,
 	"version": "0.0.1",
+	"homepage": "https://ArchprvS.github.io/franco-consulting",
 	"type": "module",
 	"scripts": {
 		"dev": "vite dev",
@@ -15,6 +16,7 @@
 		"@eslint/compat": "^1.2.5",
 		"@eslint/js": "^9.18.0",
 		"@sveltejs/adapter-auto": "^6.0.0",
+		"@sveltejs/adapter-static": "^3.0.9",
 		"@sveltejs/kit": "^2.22.0",
 		"@sveltejs/vite-plugin-svelte": "^6.0.0",
 		"eslint": "^9.18.0",
