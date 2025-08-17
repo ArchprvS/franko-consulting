@@ -2,7 +2,7 @@
 	"name": "franco-consulting",
 	"private": true,
 	"version": "0.0.1",
-	"homepage": "https://ArchprvS.github.io/franco-consulting",
+	"homepage": "https://ArchprvS.github.io/franko-consulting",
 	"type": "module",
 	"scripts": {
 		"dev": "vite dev",
