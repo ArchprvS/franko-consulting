@@ -4,13 +4,13 @@ import { vitePreprocess } from '@sveltejs/vite-plugin-svelte';
 export default {
   kit: {
     adapter: adapter({
-      pages: 'build', // Folder wyjściowy dla GitHub Pages
+      pages: 'build',
       assets: 'build',
-      fallback: '404.html', // Dla SPA, aby obsługiwać routing
+      fallback: '404.html',
       precompress: false
     }),
     paths: {
-      base: '/moja-aplikacja-svelte' // Zastąp nazwą repozytorium
+      base: '/franko-consulting'
     }
   },
   preprocess: vitePreprocess()
