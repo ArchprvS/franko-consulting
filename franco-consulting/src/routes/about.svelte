@@ -59,6 +59,7 @@
 	}
 	h1 {
 		font-family: 'Mozilla Headline';
+		color: rgb(200, 15, 15);
 		text-align: left;
 		font-size: 5vh;
 		min-height: 5vh;

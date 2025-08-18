@@ -79,6 +79,7 @@
 		text-align: left;
 		font-size: 5vh;
 		min-height: 5vh;
+		color: rgb(200, 15, 15);
 	}
 	li {
 		list-style-image: url('point.png');

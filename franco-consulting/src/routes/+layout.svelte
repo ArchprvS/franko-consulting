@@ -12,6 +12,8 @@
 	let previous_max = $state(0);
 	let current_max = $state(0);
 	let scrollbar_width = $state(0);
+	let width = $state(0);
+	$inspect(width);
 
 	// PARALLAX - dodane
 	let bgElement;
@@ -23,6 +25,7 @@
 	onMount(() => {
 		// Oblicz szerokość scrollbara na początku
 		scrollbar_width = window.innerWidth - document.documentElement.clientWidth;
+		width = window.innerWidth;
 
 		// PARALLAX + oryginalny scroll handler - połączone
 		let ticking = false;
@@ -69,7 +72,7 @@
 	});
 
 	$effect(() => {
-		if (menu_open) {
+		if (menu_open && width > 580) {
 			document.body.style.overflow = 'hidden';
 			document.body.style.paddingRight = `${scrollbar_width}px`;
 		} else {
@@ -133,7 +136,7 @@
     left: 0;
     width: 100%;
     height: 200vh; /* znacznie większa wysokość */
-    background-image: url('/background_4.jpg');
+    background-image: url('/background_5.png');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -279,6 +282,10 @@
 	@media (max-width: 580px) {
 		.logo p {
 			font-size: 1.3em;
+			font-weight: 500;
+		}
+		.bg-parallax {
+			height: 250vh;
 		}
 	}
 </style>
