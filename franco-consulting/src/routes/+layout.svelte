@@ -98,17 +98,17 @@
 
 <!-- PARALLAX TŁO - dodane -->
 <div class="bg-parallax" bind:this={bgElement}></div>
-
 <div class="header">
 	<div class="menubar" class:menubar_hide>
 		<div class="logo">
-			<p>Franko Consulting</p>
+			<p class:logo_masked={menu_open || scroll_offtop}>Franko Consulting</p>
 		</div>
 		<button
 			class="menubutton"
 			onclick={toggle_menu}
 			aria-label="Toggle menu"
 			style="margin-right: {menu_open ? scrollbar_width + 20 : 20}px;"
+			class:menubutton_masked={menu_open || scroll_offtop}
 		>
 			<div class="line_0" class:rotate_0={menu_open}></div>
 			<div class="line_1" class:rotate_1={menu_open}></div>
@@ -136,7 +136,7 @@
     left: 0;
     width: 100%;
     height: 200vh; /* znacznie większa wysokość */
-    background-image: url('/background_3.png');
+    background-image: url('/background_7.png');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -183,9 +183,13 @@
 		font-size: 1.5em;
 		display: flex;
 		align-items: center;
-		padding-left: 20px;
+		padding-left: 13vw;
 		z-index: 20;
 		margin: 0;
+		transition: all 0.5s ease;
+	}
+	.logo_masked {
+		padding-left: 5vw !important;
 	}
 
 	.menubutton {
@@ -196,10 +200,15 @@
 		display: flex;
 		flex-direction: column;
 		justify-content: space-between;
-		margin: 2vh 20px;
+		margin: 2vh 13vw 2vh 0px !important;
 		padding: 0;
+		padding-right: 0px;
 		cursor: pointer;
 		z-index: 20;
+		transition: all 0.5s ease;
+	}
+	.menubutton_masked {
+		margin-right: 5vw !important;
 	}
 
 	.line_0,

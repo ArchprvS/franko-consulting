@@ -1,33 +1,60 @@
 <!-- src/routes/+page.svelte -->
 <script>
-  import { onMount } from 'svelte';
-  import { machine_writing } from './utils.js';
+	import { onMount } from 'svelte';
+	import { machine_writing } from './utils.js';
 
-  let target_text = $state('');
+	let target_text = $state('');
 
-  onMount(() => {
-    machine_writing('Pomoc osobom zatrzymanym', 30, (char) => {
-      target_text += char;
-    });
-    return () => {
-    };
-  });
+	onMount(() => {
+		machine_writing('Pomoc osobom zatrzymanym', 30, (char) => {
+			target_text += char;
+		});
+		return () => {};
+	});
 </script>
 
-<div class="section_0">
-  <img src="./logo_fc_new.png" alt="logo" />
-  <div>
-    <h1>Franko Consulting</h1>
-    <p>{target_text}</p>
-  </div>
-  <div class="cube">
-    <span class="side top"><span class="top_text">Konsultacja</span></span>
-    <span class="side front">Zadzwoń</span>
-  </div>
+<div class="section_container">
+	<div class="column c_0"><img src="column.png" alt="column" /></div>
+	<div class="section_0">
+		<img src="./logo_fc_new.png" alt="logo"/>
+		<div>
+			<h1>Franko Consulting</h1>
+			<p>{target_text}</p>
+		</div>
+		<div class="cube">
+			<span class="side top"><span class="top_text">Konsultacja</span></span>
+			<span class="side front">Zadzwoń</span>
+		</div>
+	</div>
+	<div class="column c_1"><img src="column_a.png" alt="column"/></div>
 </div>
 
 <style>
+	.section_container {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		overflow: hidden;
+	}
+	.column {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		z-index: 1;
+		width: 10%;
+	}
+	.column img {
+		height: 100vh;
+		transform: scaleY(1.027);
+	}
+	.c_0 {
+		transform: translateX(-20px);
+	}
+	.c_1 {
+		transform: translateX(20px);
+	}
 	.section_0 {
+		width: 80%;
 		display: flex;
 		flex-direction: column;
 		align-items: center;
@@ -36,7 +63,7 @@
 		/* background-color: rgba(0, 0, 0, 0.250); */
 	}
 	.section_0 img {
-		width: 80%;
+		width: 90%;
 		max-width: 800px;
 		margin-bottom: 0;
 	}
@@ -108,12 +135,16 @@
 			height: 100vh;
 		}
 		.section_0 h1 {
-			font-size: 2em;
+			font-size: 1.8em;
 		}
 		.section_0 p {
-			font-size: 1.2em;
+			font-size: 1.1em;
+			padding-left: 3vw;
 			font-weight: 500;
 		}
+		.column img {
+		width: 25vw;
+	}
 	}
 	@keyframes flip {
 		from {

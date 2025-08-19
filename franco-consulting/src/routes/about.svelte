@@ -56,6 +56,7 @@
 	.text_container {
 		background-color: rgb(255, 255, 255);
 		padding: 10vw;
+		z-index: 5;
 		/* min-height: 92vh; */
 	}
 	h1 {
