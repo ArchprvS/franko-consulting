@@ -75,7 +75,7 @@
 	}
 	.bold {
 		font-weight: 700;
-		color: rgb(160, 15, 15);
+		color: rgb(175, 15, 15);
 	}
 	@media (max-width: 580px) {
 		h1 {

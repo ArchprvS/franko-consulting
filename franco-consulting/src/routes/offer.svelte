@@ -6,7 +6,7 @@
 	let target_text = $state('');
 	let top_distance = $state(0);
 	let window_height = $state(0);
-	let trigger = false;
+	let trigger = $state(false);
 
 	onMount(() => {
 		function updatePosition() {
@@ -42,13 +42,13 @@
 		<div class="element">
 			<h1 bind:this={element_ref}>{target_text}</h1>
 			<ul>
-				<li>Kompleksowe wsparcie dla rodzin zatrzymanych i tymczasowo aresztowanych</li>
-				<li>Pisma do administracji Służby Więziennej (ZK / AŚ)</li>
-				<li>Odwołania, podania, prośby, wnioski i warunkowe zwolnienia</li>
-				<li>Stały kontakt z kuratorami sądowymi i wychowawcami</li>
-				<li>Monitorowanie warunków osadzenia i przebiegu postępowania</li>
-				<li>Pomoc psychologiczna i komunikacyjna dla rodzin</li>
-				<li>Opracowanie indywidualnych strategii działania</li>
+				<li class:visible={trigger}>Kompleksowe wsparcie dla rodzin zatrzymanych i tymczasowo aresztowanych</li>
+				<li class:visible={trigger}>Pisma do administracji Służby Więziennej (ZK / AŚ)</li>
+				<li class:visible={trigger}>Odwołania, podania, prośby, wnioski i warunkowe zwolnienia</li>
+				<li class:visible={trigger}>Stały kontakt z kuratorami sądowymi i wychowawcami</li>
+				<li class:visible={trigger}>Monitorowanie warunków osadzenia i przebiegu postępowania</li>
+				<li class:visible={trigger}>Pomoc psychologiczna i komunikacyjna dla rodzin</li>
+				<li class:visible={trigger}>Opracowanie indywidualnych strategii działania</li>
 			</ul>
 		</div>
 	</div>
@@ -81,12 +81,24 @@
 		min-height: 5vh;
 		color: rgb(200, 15, 15);
 	}
+	ul {
+		padding: 0;
+	}
 	li {
-		list-style-type: decimal;
+		list-style-type: none;
 		font-family: 'Mozilla Headline';
 		text-align: left;
 		font-size: 2.5vh;
-		padding: 0;
-		padding-top: 10px;
+		padding: 20px;
+		margin-bottom: 10px;
+		transition: border 2s ease, background-color 0.5s ease;
+		border: 2px solid #fff;
+	}
+	li:hover {
+		background-color: rgb(175, 15, 15);
+		color: #fff;
+	}
+	.visible {
+		border: 2px solid rgb(175, 15, 15);
 	}
 </style>

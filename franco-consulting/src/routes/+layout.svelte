@@ -226,7 +226,7 @@
 	.rotate_2 {
 		transform: translateX(2.7vh) translateY(-0.9vh) rotate(-45deg);
 		width: 50%;
-		background-color: rgb(200, 15, 15);
+		background-color: rgb(160, 15, 15);
 	}
 
 	.menumask {
