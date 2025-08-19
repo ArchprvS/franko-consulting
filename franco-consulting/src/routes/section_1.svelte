@@ -99,15 +99,15 @@
 	} */
 	.flip_1 {
 		animation: anim_0 1.5s forwards;
-		animation-delay: .3s;
+		animation-delay: 0.3s;
 	}
 	.middle_flip {
 		animation: anim_1 2s forwards;
-		animation-delay: .3s;
+		animation-delay: 0.3s;
 	}
 	.flip_2 {
 		animation: anim_2 1.5s forwards;
-		animation-delay: .3s;
+		animation-delay: 0.3s;
 	}
 	@keyframes anim_0 {
 		0% {
@@ -170,6 +170,22 @@
 			/* opacity: 0; */
 		}
 	}
+	@keyframes anim_mobile_1 {
+		0% {
+		}
+		50% {
+			transform: rotateX(90deg);
+			opacity: 0;
+		}
+		90% {
+			transform: rotateX(180deg);
+			opacity: 0;
+		}
+		100% {
+			transform: rotateX(180deg);
+			opacity: 0;
+		}
+	}
 	@media (max-width: 580px) {
 		.section {
 			flex-direction: column;
@@ -181,6 +197,14 @@
 			padding: 3vw;
 			width: 92%;
 			text-align: center;
+		}
+		.flip_1 {
+			animation: anim_mobile_1 1.5s forwards;
+			animation-delay: 0.3s;
+		}
+		.flip_2 {
+			animation: anim_mobile_1 1.5s forwards;
+			animation-delay: 0.3s;
 		}
 	}
 </style>

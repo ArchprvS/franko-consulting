@@ -132,11 +132,11 @@
 	/* PARALLAX TŁO - dodane */
 .bg-parallax {
     position: fixed;
-    top: -50vh; /* więcej przestrzeni z góry */
+    top: -30vh; /* więcej przestrzeni z góry */
     left: 0;
     width: 100%;
     height: 200vh; /* znacznie większa wysokość */
-    background-image: url('/background_5.png');
+    background-image: url('/background_3.png');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -213,8 +213,9 @@
 	}
 
 	.rotate_0 {
-		transform: translateX(2.7vh) translateY(0.9vh) rotate(45deg);
+		transform: translateX(2.7vh) translateY(0.8vh) rotate(45deg);
 		width: 50%;
+		background-color: rgb(160, 15, 15);
 	}
 
 	.rotate_1 {
@@ -223,8 +224,9 @@
 	}
 
 	.rotate_2 {
-		transform: translateX(2.7vh) translateY(-1vh) rotate(-45deg);
+		transform: translateX(2.7vh) translateY(-0.9vh) rotate(-45deg);
 		width: 50%;
+		background-color: rgb(200, 15, 15);
 	}
 
 	.menumask {

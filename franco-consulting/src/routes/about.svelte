@@ -6,7 +6,7 @@
 	let target_text = $state('');
 	let top_distance = $state(0);
 	let window_height = $state(0);
-	let trigger = false;
+	let trigger = $state(false);
 
 	onMount(() => {
 		function updatePosition() {
@@ -14,7 +14,7 @@
 				// Sprawdzenie, czy element_ref istnieje
 				const rect = element_ref.getBoundingClientRect();
 				top_distance = rect.top;
-				if ((top_distance < (window_height - window_height / 4)) && !trigger) {
+				if (top_distance < window_height - window_height / 4 && !trigger) {
 					trigger = true;
 					machine_writing('Kim jesteśmy?', 30, (char) => {
 						target_text += char;
@@ -40,14 +40,15 @@
 <div class="text_container">
 	<h1 bind:this={element_ref}>{target_text}</h1>
 	<p>
-		Franko Consulting to niezależna firma doradcza i wspierająca, stworzona przez ludzi z
-		praktycznym doświadczeniem operacyjnym, detektywistycznym oraz życiowym. Działamy z myślą o
-		osobach zatrzymanych, tymczasowo aresztowanych i ich bliskich – wspierając ich w najbardziej
-		kryzysowych momentach. Nasze podejście oparte jest na realnej znajomości systemu, kontaktach z
-		profesjonalistami oraz zaangażowaniu, które wykracza daleko poza formalności. Nie jesteśmy tylko
-		doradcami – działamy w terenie, pomagamy bezpośrednio i skutecznie. Rozumiemy mechanizmy systemu
-		i wiemy, jak skutecznie na nie reagować. Każde zlecenie traktujemy indywidualnie, z pełnym
-		profesjonalizmem i dyskrecją. Naszym celem jest realna pomoc – nie teoria.
+		<span class:bold={trigger}>Firma Detektywistyczna Franko</span> od 2015 roku pomaga osobom zatrzymanym, osadzonym oraz
+		ich rodzinom. Nasze działania są oparte na realnym doświadczeniu, co gwarantuje ich szybkość,
+		skuteczność i przemyślany charakter. Wspieramy osoby w trudnych sytuacjach
+		prawnych i życiowych <span class:bold={trigger}>od pierwszych godzin po zatrzymaniu</span>. Nasza specjalizacja to pomoc administracyjna, prawna i organizacyjna, w
+		tym pisma, wnioski, działania interwencyjne oraz przygotowanie do spotkań z kuratorami i
+		adwokatami. Nasza firma współpracuje ze <span class:bold={trigger}>specjalistami z zakresu medycyny sądowej, patomorfologami oraz biegłymi sądowymi</span>, w tym z ekspertami z Wojskowego Instytutu Medycznego w Warszawie
+		co pozwala nam na oferowanie profesjonalnych ekspertyz lekarskich i analiz w sprawach o wysokim
+		stopniu złożoności. <span class:bold={trigger}>Dyskrecja, prawo i doświadczenie</span> to nasze fundamenty. Działamy cicho,
+		etycznie i skutecznie, dzięki dogłębnej znajomości systemu.
 	</p>
 </div>
 
@@ -68,6 +69,13 @@
 		font-family: 'Mozilla Headline';
 		text-align: justify;
 		font-size: 2.5vh;
+	}
+	span {
+		transition: all 2s ease;
+	}
+	.bold {
+		font-weight: 700;
+		color: rgb(160, 15, 15);
 	}
 	@media (max-width: 580px) {
 		h1 {

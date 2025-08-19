@@ -82,10 +82,11 @@
 		color: rgb(200, 15, 15);
 	}
 	li {
-		list-style-image: url('point.png');
+		list-style-type: decimal;
 		font-family: 'Mozilla Headline';
 		text-align: left;
 		font-size: 2.5vh;
+		padding: 0;
 		padding-top: 10px;
 	}
 </style>
