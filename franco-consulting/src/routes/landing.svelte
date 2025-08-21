@@ -14,7 +14,7 @@
 </script>
 
 <div class="section_container">
-	<div class="column c_0"><img src="column.png" alt="column" /></div>
+	<div class="column c_0"><img src="column_a.png" alt="column" /></div>
 	<div class="section_0">
 		<img src="./logo_fc_new.png" alt="logo"/>
 		<div>
@@ -26,7 +26,7 @@
 			<span class="side front">Zadzwoń</span>
 		</div>
 	</div>
-	<div class="column c_1"><img src="column_a.png" alt="column"/></div>
+	<div class="column c_1"><img src="column.png" alt="column"/></div>
 </div>
 
 <style>

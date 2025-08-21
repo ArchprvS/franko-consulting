@@ -78,7 +78,9 @@
 		font-size: 2.7vw;
 		min-height: 2.7vw;
 		font-weight: 400;
-		background-color: #fff;
+		background-color: #0000008a;
+		color: #fff;
+		border: 2px solid black;
 		padding: 2.2vw;
 		text-align: left;
 		width: 25%;
@@ -186,16 +188,46 @@
 			opacity: 0;
 		}
 	}
+	@keyframes middle_anim_mobile {
+		0% {
+			transform: scale(1) rotateX(0deg);
+			padding: 2.2vw;
+		}
+		6.25% {
+			transform: scale(1) rotateX(90deg);
+		}
+		12.5% {
+			transform: scale(1) rotateX(180deg);
+		}
+		18.75% {
+			transform: scale(1) rotateX(270deg);
+		}
+		50% {
+			transform: scale(1);
+			padding: 2.2vw;
+			font-weight: 400;
+			transform: rotateX(360deg);
+		}
+		73.5% {
+			font-weight: 600;
+		}
+		100% {
+			transform: scale(1.5);
+			font-weight: 600;
+			padding-left: 4vw;
+		}
+	}
 	@media (max-width: 580px) {
 		.section {
 			flex-direction: column;
 			padding: 20vh 10vw;
+			align-items: center;
 		}
 		h2 {
-			font-size: 7vw;
+			font-size: 6vw;
 			min-height: 7vw;
 			padding: 3vw;
-			width: 92%;
+			width: 60%;
 			text-align: center;
 		}
 		.flip_1 {
@@ -204,6 +236,10 @@
 		}
 		.flip_2 {
 			animation: anim_mobile_1 1.5s forwards;
+			animation-delay: 0.3s;
+		}
+		.middle_flip {
+			animation: middle_anim_mobile 1.5s forwards;
 			animation-delay: 0.3s;
 		}
 	}
