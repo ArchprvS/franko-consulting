@@ -151,7 +151,7 @@
     align-items: center;
     padding: 2.5vh 3vh;
     background-color: #f7f7f7;
-    transition: background-color 0.3s ease;
+    transition: background-color 1s ease;
   }
   .accordion_header:hover {
     background-color: #ebebeb;
@@ -169,6 +169,7 @@
     transition: max-height 0.4s ease-out;
     padding: 0 3vh;
     background-color: #fff;
+    transition: padding 0.5s ease;
   }
   .accordion_content.open {
     max-height: 500px;
@@ -192,6 +193,12 @@
   @media (max-width: 580px) {
     h1, p, .accordion_header p, .accordion_content p {
       text-align: left;
+    }
+    h1 {
+      font-size: 4.5vh;
+    }
+    p {
+      font-size: 2.2vh;
     }
   }
 </style>

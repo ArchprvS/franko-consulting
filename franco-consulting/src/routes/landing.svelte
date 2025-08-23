@@ -115,7 +115,7 @@
 
 	.top {
 		background: rgb(255, 255, 255);
-		color: #000000;
+		color: rgb(200, 15, 15);
 		font-size: 1em;
 		font-weight: 800;
 		transform: rotateX(90deg) translate3d(0, 0, 2em);

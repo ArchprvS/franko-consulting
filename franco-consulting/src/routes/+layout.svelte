@@ -127,15 +127,34 @@
 <main>
 	{@render children()}
 </main>
-
+<div class="footer">
+	<p>Franko Consulting sp. z.o.o.</p>
+	<p>ul Rędzińska 54, 42-209 Częstochowa</p>
+	<p>512 379 666 | biuro@franko-consulting.pl</p>
+	<p>Developer: ArchprvS</p>
+</div>
 <style>
 	/* PARALLAX TŁO - dodane */
+	.footer {
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		justify-content: space-between;
+		background-color: rgba(200, 200, 200, 0.4);
+		backdrop-filter: blur(15px);
+		border-top: 1px solid black;
+	}
+	.footer p {
+		text-align: center;
+		font-family: 'Mozilla Headline';
+		padding: 0 2vw;
+	}
 .bg-parallax {
     position: fixed;
-    top: -30vh; /* więcej przestrzeni z góry */
+    top: 0vh; /* więcej przestrzeni z góry */
     left: 0;
     width: 100%;
-    height: 200vh; /* znacznie większa wysokość */
+    height: 400vh; /* znacznie większa wysokość */
     background-image: url('/background_7.png');
     background-size: cover;
     background-position: center;
@@ -245,7 +264,7 @@
 		position: fixed;
 		z-index: 10;
 		border-bottom: 1px solid black;
-		transform: translateX(-100%);
+		transform: translateX(100%);
 		transition:
 			backdrop-filter 0.5s ease,
 			transform 0.5s ease-in-out;
@@ -262,7 +281,7 @@
 		display: flex;
 		flex-direction: column;
 		text-align: right;
-		transform: translateX(100%);
+		transform: translateX(-100%);
 		transition:
 			backdrop-filter 0.5s ease,
 			transform 0.5s ease-in-out;
@@ -298,5 +317,8 @@
 		.bg-parallax {
 			height: 250vh;
 		}
+		.footer {
+		flex-direction: column;
+	}
 	}
 </style>

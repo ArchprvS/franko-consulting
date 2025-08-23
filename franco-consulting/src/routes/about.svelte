@@ -80,10 +80,12 @@
 	}
 	@media (max-width: 580px) {
 		h1 {
+			font-size: 4.5vh;
 			text-align: left;
 		}
 		p {
 			text-align: left;
+			font-size: 2.2vh;
 		}
 	}
 </style>
