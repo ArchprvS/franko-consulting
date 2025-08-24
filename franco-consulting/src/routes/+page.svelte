@@ -1,5 +1,6 @@
 <script>
 	import About from "./about.svelte";
+	import Contact from "./contact.svelte";
 	import Cooperation from "./cooperation.svelte";
 	import Landing from "./landing.svelte";
 	import OfferNew from "./offer_new.svelte";
@@ -16,6 +17,7 @@
 <Section_3 />
 <Cooperation />
 <Section_4 />
+<Contact />
 <style>
 
 </style>
